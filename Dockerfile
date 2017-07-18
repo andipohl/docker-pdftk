@@ -15,17 +15,16 @@ MAINTAINER SFox Lviv <sfox.lviv@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+COPY run.sh /run.sh
+
 RUN apt-get update \
     && apt-get install -y pdftk mc\
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && mkdir /input \
-    && mkdir /output
-
-
-COPY run.sh /run.sh
-
+    && mkdir /output \
+    && chmod +x /run.sh
 
 VOLUME ["/input","/output"]
 
