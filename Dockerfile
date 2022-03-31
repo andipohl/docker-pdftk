@@ -1,5 +1,5 @@
-FROM debian:stretch
-MAINTAINER SFoxDev <admin@sfoxdev.com>
+FROM debian:bullseye
+MAINTAINER andipohl <andreas.pohl@mateurope.com>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=C.UTF-8 \
@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANGUAGE=en_US.UTF-8 
 
 RUN apt-get update \
-    && apt-get install -y pdftk mc\
+    && apt-get install -y pdftk mc \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
